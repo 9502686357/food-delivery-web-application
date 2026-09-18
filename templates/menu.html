@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ restaurant["name"] }} Menu</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>{{ restaurant["name"] }}</h1>
+    <p>{{ restaurant["location"] }}</p>
+</header>
+
+<main>
+
+    <h2>Menu</h2>
+
+    <div class="menu-container">
+
+        {% for item in menu_items %}
+
+        <div class="menu-card">
+
+            <h3>{{ item["name"] }}</h3>
+
+            <p>₹{{ item["price"] }}</p>
+
+            <button
+                onclick="addToCart(
+                    '{{ item['name'] }}',
+                    {{ item['price'] }}
+                )">
+                Add to Cart
+            </button>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    <br>
+
+    <a href="/restaurant/{{ restaurant['id'] }}">
+        Refresh Menu
+    </a>
+
+</main>
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>
