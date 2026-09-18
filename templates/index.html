@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Delivery Application</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Food Delivery Application</h1>
+    <p>Find restaurants and explore their menus</p>
+</header>
+
+<main>
+
+    <h2>Restaurants</h2>
+
+    <div class="restaurant-container">
+
+        {% for restaurant in restaurants %}
+
+        <div class="restaurant-card">
+
+            <h3>{{ restaurant["name"] }}</h3>
+
+            <p>{{ restaurant["location"] }}</p>
+
+            <a href="/restaurant/{{ restaurant['id'] }}">
+                View Menu
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</main>
+
+</body>
+</html>
